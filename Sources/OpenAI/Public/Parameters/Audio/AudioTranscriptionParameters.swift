@@ -31,14 +31,14 @@ public struct AudioTranscriptionParameters: Encodable {
    public enum Model: String {
       case whisperOne = "whisper-1"
    }
-   
-   public enum ResponseFormat: String {
+
+   public enum ResponseFormat: String, Codable, Equatable, CaseIterable {
     case json
     case text
     case verboseJson = "verbose_json"
     case srt
     case vtt
-}
+   }
    
    enum CodingKeys: String, CodingKey {
       case file

@@ -21,7 +21,7 @@ public struct AudioTranscriptionParameters: Encodable {
    /// An optional text to guide the model's style or continue a previous audio segment. The [prompt](https://platform.openai.com/docs/guides/speech-to-text/prompting) should match the audio language.
    let prompt: String?
    /// The format of the transcript output, in one of these options: json, text, srt, verbose_json, or vtt. Defaults to json
-   let responseFormat: String?
+   let responseFormat: ResponseFormat?
    /// The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use [log probability](https://en.wikipedia.org/wiki/Log_probability) to automatically increase the temperature until certain thresholds are hit. Defaults to 0
    let temperature: Double?
    /// Defaults to segment
@@ -31,6 +31,14 @@ public struct AudioTranscriptionParameters: Encodable {
    public enum Model: String {
       case whisperOne = "whisper-1"
    }
+   
+   public enum ResponseFormat: String {
+    case json
+    case text
+    case verboseJson = "verbose_json"
+    case srt
+    case vtt
+}
    
    enum CodingKeys: String, CodingKey {
       case file

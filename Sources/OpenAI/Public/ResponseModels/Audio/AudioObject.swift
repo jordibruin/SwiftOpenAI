@@ -13,7 +13,7 @@ public struct AudioObject: Decodable {
    /// The language of the input audio.
    public let language: String?
    /// The duration of the input audio.
-   public let duration: String?
+   public let duration: Double?
    /// The transcribed text if the request uses the `transcriptions` API, or the translated text if the request uses the `translations` endpoint.
    public let text: String
    /// Extracted words and their corresponding timestamps.

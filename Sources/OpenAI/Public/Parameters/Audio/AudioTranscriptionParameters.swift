@@ -55,7 +55,7 @@ public struct AudioTranscriptionParameters: Encodable {
       file: Data,
       model: Model = .whisperOne,
       prompt: String? = nil,
-      responseFormat: String? = nil,
+      responseFormat: ResponseFormat? = nil,
       temperature: Double? = nil,
       language: String? = nil,
       timestampGranularities: [String]? = nil)

@@ -21,7 +21,7 @@ public struct AudioTranscriptionParameters: Encodable {
    /// An optional text to guide the model's style or continue a previous audio segment. The [prompt](https://platform.openai.com/docs/guides/speech-to-text/prompting) should match the audio language.
    let prompt: String?
    /// The format of the transcript output, in one of these options: json, text, srt, verbose_json, or vtt. Defaults to json
-   let responseFormat: ResponseFormat?
+   let responseFormat: String?
    /// The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use [log probability](https://en.wikipedia.org/wiki/Log_probability) to automatically increase the temperature until certain thresholds are hit. Defaults to 0
    let temperature: Double?
    /// Defaults to segment
@@ -64,7 +64,7 @@ public struct AudioTranscriptionParameters: Encodable {
       self.file = file
       self.model = model.rawValue
       self.prompt = prompt
-      self.responseFormat = responseFormat
+      self.responseFormat = responseFormat.rawValue
       self.temperature = temperature
       self.language = language
       self.timestampGranularities = timestampGranularities
@@ -81,7 +81,7 @@ extension AudioTranscriptionParameters: MultipartFormDataParameters {
          .string(paramName: Self.CodingKeys.model.rawValue, value: model),
          .string(paramName: Self.CodingKeys.language.rawValue, value: language),
          .string(paramName: Self.CodingKeys.prompt.rawValue, value: prompt),
-         .string(paramName: Self.CodingKeys.responseFormat.rawValue, value: responseFormat.rawValue),
+         .string(paramName: Self.CodingKeys.responseFormat.rawValue, value: responseFormat),
          .string(paramName: Self.CodingKeys.temperature.rawValue, value: temperature),
          .string(paramName: Self.CodingKeys.timestampGranularities.rawValue, value: timestampGranularities)
       ]).build()

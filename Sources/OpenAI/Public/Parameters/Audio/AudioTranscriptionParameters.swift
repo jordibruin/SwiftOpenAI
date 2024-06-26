@@ -81,7 +81,7 @@ extension AudioTranscriptionParameters: MultipartFormDataParameters {
          .string(paramName: Self.CodingKeys.model.rawValue, value: model),
          .string(paramName: Self.CodingKeys.language.rawValue, value: language),
          .string(paramName: Self.CodingKeys.prompt.rawValue, value: prompt),
-         .string(paramName: Self.CodingKeys.responseFormat.rawValue, value: responseFormat),
+         .string(paramName: Self.CodingKeys.responseFormat.rawValue, value: responseFormat.rawValue),
          .string(paramName: Self.CodingKeys.temperature.rawValue, value: temperature),
          .string(paramName: Self.CodingKeys.timestampGranularities.rawValue, value: timestampGranularities)
       ]).build()

@@ -64,7 +64,7 @@ public struct AudioTranscriptionParameters: Encodable {
       self.file = file
       self.model = model.rawValue
       self.prompt = prompt
-      self.responseFormat = responseFormat.rawValue
+      self.responseFormat = responseFormat.rawValue ?? nil
       self.temperature = temperature
       self.language = language
       self.timestampGranularities = timestampGranularities
